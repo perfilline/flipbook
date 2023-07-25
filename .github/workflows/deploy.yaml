@@ -31,4 +31,4 @@ jobs:
           git add -A
           git commit -m "🚀 Deploy id ${GITHUB_RUN_ID}"
           ls
-          git push -f "https://${access_token}@github.com/${username}/${GITHUB_REPOSITORY}.git" master:gh-pages
+          git push -f "https://${access_token}@github.com${username}/${GITHUB_REPOSITORY}.git" master:gh-pages
