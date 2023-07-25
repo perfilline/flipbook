@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16'
       - name: setup git auth
         env:
           email: 'ti@perfilline.com.br'
@@ -21,7 +21,7 @@ jobs:
           echo "https://${access_token}:x-oauth-basic@github.com" > ~/.git-credentials
           git config --global user.email $email
           git config --global user.name $username
-      - name: deploy to flipbook
+      - name: deploy to gh-pages
         run: |
           npm i
           NODE_ENV=production
@@ -30,4 +30,4 @@ jobs:
           git init
           git add -A
           git commit -m "🚀 Deploy id ${GITHUB_RUN_ID}"
-          git push -f "https://github.com/${GITHUB_REPOSITORY}.git" master:master
+          git push -f "https://github.com/${GITHUB_REPOSITORY}.git" master:gh-pages
